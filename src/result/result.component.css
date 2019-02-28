@@ -1,0 +1,11 @@
+#container{
+    border: 5px, black, solid;
+    border-radius:50px;
+    width:60%;
+}
+#image{
+    max-height: 200px;
+}
+#textbox{
+    text-align:left;
+}

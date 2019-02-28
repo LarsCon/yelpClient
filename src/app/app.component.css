@@ -1,0 +1,14 @@
+#field{
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+}
+.fieldOp{
+    width:33.3%;
+    text-align:center;
+    float:left;
+}
+#result{
+    width:100%;
+    text-align:center;
+}
