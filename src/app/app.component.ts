@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl} from '@angular/forms';
-// import { DatabaseService } from '../services/services.service';
+import { DatabaseService } from '../services/services.service';
+import { ResultComponent } from '../result/result.component';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,10 @@ export class AppComponent implements OnInit{
     {value: 4, view: '$$$$'},
     {value: 5, view: '$$$$$'}
   ];
+
   createSearch: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dbService: DatabaseService, private rsService: ResultComponent) {}
 
   ngOnInit() {
     this.createSearch = this.fb.group({
@@ -26,7 +28,13 @@ export class AppComponent implements OnInit{
     })
   }
 
-  // onCreateSearch(){
+  onCreateSearch(){
+    const state = this.createSearch.get('state').value;
+    const price = this.createSearch.get('price').value;
+    this.dbService.makeSearch({state, price}).subscribe(Result => {
+      debugger;
+      this.rsService.setResults(Result)
+  })
+}
 
-  // }
 }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Food } from '../models/food.model';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Bearer' : 'CpQ2MEVOgTTfTrdta8hUi_RiCXI0cTzeUuiri__M4gczA6cN5S2J77R27GMdm4Rlnw-zouCMY6j5lJAtBeh2cTFZHKlD1FXpDepgXufyNKrYAOZ-V659EGXkvU53XHYx' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -12,12 +12,18 @@ const httpOptions = {
 })
 
 export class DatabaseService {
-  private psUrl = 'http://localhost:3333';
+  private psUrl = 'http://localhost:3333/restaurant';
 
   constructor(private http: HttpClient) { }
 
   getRestaurant(): Observable<Food[]> {
     return this.http.get<Food[]>(this.psUrl);
+  }
+
+  makeSearch(searchParams: Food) : Observable<Food[]> {
+    debugger;
+    let params = new HttpParams().set("price", searchParams.price).set("state", searchParams.state);
+    return this.http.get<Food[]>(this.psUrl, {params, ...httpOptions});
   }
 
 }

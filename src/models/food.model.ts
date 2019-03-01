@@ -1,3 +1,4 @@
 export interface Food{
-    nameOfResteraunt: string
+    state: string,
+    price: string
 }

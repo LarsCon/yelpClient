@@ -1,8 +1,8 @@
     <img src='../assets/testimg.jpg' style='height:200px; float:left; margin-left: 20%; border: 0px solid black; border-radius:500px;'>
     <div style='margin-right:20%;'>
-    <h4>Name</h4>
-    <h4>Rating</h4>
-    <h4>address</h4>
-    <h4>phone</h4>
-    <h4>delivers</h4>
+    <h4>Name: {{ result[0].name }}</h4>
+    <h4>Rating: {{ result[0].rating }}</h4>
+    <h4>address: {{ result[0].location.address1 }} {{ result[0].location.city }} {{ result[0].location.zipcode }}</h4>
+    <h4>phone: {{ result[0].phone }}</h4>
+    <h4>delivers: {{ result[0].transactions[0] }}</h4>
   </div>
