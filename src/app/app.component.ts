@@ -32,7 +32,6 @@ export class AppComponent implements OnInit{
     const state = this.createSearch.get('state').value;
     const price = this.createSearch.get('price').value;
     this.dbService.makeSearch({state, price}).subscribe(Result => {
-      debugger;
       this.rsService.setResults(Result)
   })
 }

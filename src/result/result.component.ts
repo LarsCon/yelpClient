@@ -38,7 +38,6 @@ export class ResultComponent implements OnInit {
   }
 
   setResults(results: any) {
-    debugger;
     this.result = results;
   }
 

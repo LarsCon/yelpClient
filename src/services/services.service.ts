@@ -21,7 +21,6 @@ export class DatabaseService {
   }
 
   makeSearch(searchParams: Food) : Observable<Food[]> {
-    debugger;
     let params = new HttpParams().set("price", searchParams.price).set("state", searchParams.state);
     return this.http.get<Food[]>(this.psUrl, {params, ...httpOptions});
   }
